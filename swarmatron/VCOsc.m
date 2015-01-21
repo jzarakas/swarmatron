@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Adam Salberg. All rights reserved.
 //
 
+#import "AKFoundation.h"
+#import "AKAudioOutput.h"
 #import "VCOsc.h"
 
 @interface VCOsc ()
@@ -14,24 +16,27 @@
 
 @implementation VCOsc
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (instancetype) init {
+    self = [super init];
+    
+    if (self) {
+        
+        _frequency = [[AKInstrumentProperty alloc]
+                      initWithValue:440
+                      minimum:50
+                      maximum:3400];
+        
+        [self addProperty:_frequency];
+        
+        AKVCOscillator *vcOscillator;
+        vcOscillator = [[AKVCOscillator alloc] init];
+        vcOscillator.frequency = _frequency;
+        [self connect: vcOscillator];
+        
+        AKAudioOutput *audioOutput = [[AKAudioOutput alloc] initWithAudioSource:vcOscillator];
+        [self connect:audioOutput];
+    }
+    return self;
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

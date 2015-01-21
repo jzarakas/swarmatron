@@ -17,6 +17,7 @@
 		B32482111A6B546200CD9244 /* swarmatronTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B32482101A6B546200CD9244 /* swarmatronTests.m */; };
 		B37749811A70339B007B182C /* LogarithmicSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = B377497F1A70339B007B182C /* LogarithmicSlider.m */; };
 		B37749821A70339B007B182C /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B37749801A70339B007B182C /* README.md */; };
+		B37749851A703F2B007B182C /* VCOsc.m in Sources */ = {isa = PBXBuildFile; fileRef = B37749841A703F2B007B182C /* VCOsc.m */; };
 		B3B061DF1A6B664F008F3412 /* AKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B0607E1A6B664E008F3412 /* AKEvent.m */; };
 		B3B061E01A6B664F008F3412 /* AKInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B060811A6B664E008F3412 /* AKInstrument.m */; };
 		B3B061E11A6B664F008F3412 /* AKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B060831A6B664E008F3412 /* AKManager.m */; };
@@ -193,6 +194,8 @@
 		B377497E1A70339B007B182C /* LogarithmicSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogarithmicSlider.h; sourceTree = "<group>"; };
 		B377497F1A70339B007B182C /* LogarithmicSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogarithmicSlider.m; sourceTree = "<group>"; };
 		B37749801A70339B007B182C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B37749831A703F2B007B182C /* VCOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCOsc.h; sourceTree = "<group>"; };
+		B37749841A703F2B007B182C /* VCOsc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCOsc.m; sourceTree = "<group>"; };
 		B3B0607D1A6B664E008F3412 /* AKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEvent.h; sourceTree = "<group>"; };
 		B3B0607E1A6B664E008F3412 /* AKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKEvent.m; sourceTree = "<group>"; };
 		B3B0607F1A6B664E008F3412 /* AKFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKFoundation.h; sourceTree = "<group>"; };
@@ -565,6 +568,8 @@
 				B32481F41A6B546200CD9244 /* Supporting Files */,
 				1A99C2561A6E2D0900DA9920 /* SomeInstrument.h */,
 				1A99C2571A6E2D0900DA9920 /* SomeInstrument.m */,
+				B37749831A703F2B007B182C /* VCOsc.h */,
+				B37749841A703F2B007B182C /* VCOsc.m */,
 			);
 			path = swarmatron;
 			sourceTree = "<group>";
@@ -1399,6 +1404,7 @@
 				B3B061F61A6B664F008F3412 /* AKTrackedAmplitude.m in Sources */,
 				B3B0623C1A6B664F008F3412 /* AKInterpolatedRandomNumberPulse.m in Sources */,
 				B3B0620D1A6B664F008F3412 /* AKMinAudio.m in Sources */,
+				B37749851A703F2B007B182C /* VCOsc.m in Sources */,
 				B3B061E61A6B664F008F3412 /* AKSampler.m in Sources */,
 				B3B062411A6B664F008F3412 /* AKAdditiveCosines.m in Sources */,
 				B3B062021A6B664F008F3412 /* AKRandomDistributionTable.m in Sources */,

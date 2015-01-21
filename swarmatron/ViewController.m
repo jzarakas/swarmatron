@@ -10,11 +10,13 @@
 #import "AKFoundation.h"
 #import "RWKnobControl.h"
 #import "SomeInstrument.h"
+#import "VCOsc.h"
 #import "AKTools.h"
 #import "LogarithmicSlider.h"
 
 
 @interface ViewController () {
+    VCOsc *vcOsc;
     SomeInstrument *fm;
     RWKnobControl *_knobControl;
 }
@@ -40,14 +42,18 @@
     
     [_knobControl addObserver:self forKeyPath:@"value" options:0 context:NULL];
     
-    fm = [[SomeInstrument alloc] init];
+//    fm = [[SomeInstrument alloc] init];
     
-    [AKOrchestra addInstrument:fm];
+    vcOsc = [[VCOsc alloc] init];
+    
+//    [AKOrchestra addInstrument:fm];
+    
+    [AKOrchestra addInstrument:vcOsc];
     
     _oscillators = [[NSMutableArray alloc] initWithCapacity:8];
     
     for (int i = 0; i < 8; i++) {
-        _oscillators[i] = [[SomeInstrument alloc] init];
+        _oscillators[i] = [[VCOsc alloc] init];
         [AKOrchestra addInstrument:_oscillators[i]];
     }
     
@@ -92,59 +98,59 @@
 
 - (void)updateFrequency:(float) step {
     for (int i = 1; i < 8; i++) {
-        AKInstrumentProperty *prevValue = ((SomeInstrument*)_oscillators[i-1]).frequencyValue;
+        AKInstrumentProperty *prevValue = ((VCOsc*)_oscillators[i-1]).frequency;
         
-        ((SomeInstrument*)_oscillators[i]).frequencyValue.value = prevValue.value + step;
+        ((VCOsc*)_oscillators[i]).frequency.value = prevValue.value + step;
     }
 }
 
-- (void)updateModIndex:(float) step {
-    for (int i = 1; i < 8; i++) {
-        AKInstrumentProperty *modIndex = ((SomeInstrument*)_oscillators[i-1]).modIndexValue;
-        
-        ((SomeInstrument*)_oscillators[i]).modIndexValue.value = modIndex.value + step;
-    }
-}
+//- (void)updateModIndex:(float) step {
+//    for (int i = 1; i < 8; i++) {
+//        AKInstrumentProperty *modIndex = ((SomeInstrument*)_oscillators[i-1]).modIndexValue;
+//        
+//        ((SomeInstrument*)_oscillators[i]).modIndexValue.value = modIndex.value + step;
+//    }
+//}
 
-- (void)updateCarrierMod:(float) step {
-    for (int i = 1; i < 8; i++) {
-        AKInstrumentProperty *carrierMult = ((SomeInstrument*)_oscillators[i-1]).carrierMultValue;
-        
-        ((SomeInstrument*)_oscillators[i]).carrierMultValue.value = carrierMult.value + step;
-    }
-}
+//- (void)updateCarrierMod:(float) step {
+//    for (int i = 1; i < 8; i++) {
+//        AKInstrumentProperty *carrierMult = ((SomeInstrument*)_oscillators[i-1]).carrierMultValue;
+//        
+//        ((SomeInstrument*)_oscillators[i]).carrierMultValue.value = carrierMult.value + step;
+//    }
+//}
 
 - (IBAction)changeFrequency:(id)sender {
 
-    [AKTools setProperty:((SomeInstrument*)_oscillators[0]).frequencyValue withSlider:(UISlider *)sender];
+    [AKTools setProperty:((VCOsc*)_oscillators[0]).frequency withSlider:(UISlider *)sender];
     
     for(int i = 1; i < 8; i++) {
-        AKInstrumentProperty *prevValue = ((SomeInstrument*)_oscillators[i-1]).frequencyValue;
+        AKInstrumentProperty *prevValue = ((VCOsc*)_oscillators[i-1]).frequency;
         
-        ((SomeInstrument*)_oscillators[i]).frequencyValue.value = prevValue.value + _knobControl.value;
+        ((VCOsc*)_oscillators[i]).frequency.value = prevValue.value + _knobControl.value;
     }
 }
 
-- (IBAction)changeModIndex:(id)sender {
-    
-    [AKTools setProperty:((SomeInstrument*)_oscillators[0]).modIndexValue withSlider:(UISlider *)sender];
-    
-    for(int i = 1; i < 8; i++) {
-        AKInstrumentProperty *modIndex = ((SomeInstrument*)_oscillators[i-1]).modIndexValue;
-        
-        ((SomeInstrument*)_oscillators[i]).modIndexValue.value = modIndex.value;
-    }
-}
+//- (IBAction)changeModIndex:(id)sender {
+//    
+//    [AKTools setProperty:((SomeInstrument*)_oscillators[0]).modIndexValue withSlider:(UISlider *)sender];
+//    
+//    for(int i = 1; i < 8; i++) {
+//        AKInstrumentProperty *modIndex = ((SomeInstrument*)_oscillators[i-1]).modIndexValue;
+//        
+//        ((SomeInstrument*)_oscillators[i]).modIndexValue.value = modIndex.value;
+//    }
+//}
 
-- (IBAction)changeCarrierMult:(id)sender {
-    [AKTools setProperty:((SomeInstrument*)_oscillators[0]).carrierMultValue withSlider:(UISlider *)sender];
-    
-    for(int i = 1; i < 8; i++) {
-        AKInstrumentProperty *carrierMult = ((SomeInstrument*)_oscillators[i-1]).carrierMultValue;
-        
-        ((SomeInstrument*)_oscillators[i]).carrierMultValue.value = carrierMult.value;
-    }
-}
+//- (IBAction)changeCarrierMult:(id)sender {
+//    [AKTools setProperty:((SomeInstrument*)_oscillators[0]).carrierMultValue withSlider:(UISlider *)sender];
+//    
+//    for(int i = 1; i < 8; i++) {
+//        AKInstrumentProperty *carrierMult = ((SomeInstrument*)_oscillators[i-1]).carrierMultValue;
+//        
+//        ((SomeInstrument*)_oscillators[i]).carrierMultValue.value = carrierMult.value;
+//    }
+//}
 
 
 @end

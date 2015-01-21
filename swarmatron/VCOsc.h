@@ -6,8 +6,12 @@
 //  Copyright (c) 2015 Adam Salberg. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AKInstrument.h"
 
-@interface VCOsc : UIViewController
+@interface VCOsc : AKInstrument;
+
+@property (nonatomic, strong) AKParameter *frequency;
+@property (nonatomic) AKVCOscillatorWaveformType *waveformType;
+
 
 @end
