@@ -26,7 +26,12 @@
                       minimum:50
                       maximum:3400];
         
+        _bandwidth = [[AKConstant alloc] initWithValue:0.5
+                                                         minimum:0
+                                                         maximum:1];
+        
         [self addProperty:_frequency];
+        [self addProperty:_bandwidth];
         
         AKVCOscillator *vcOscillator;
         vcOscillator = [[AKVCOscillator alloc] init];

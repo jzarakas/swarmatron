@@ -11,6 +11,9 @@
 @interface VCOsc : AKInstrument;
 
 @property (nonatomic, strong) AKParameter *frequency;
+@property (nonatomic, strong) AKConstant *bandwidth;
+@property (nonatomic, strong) AKParameter *pulseWidth;
+
 @property (nonatomic) AKVCOscillatorWaveformType *waveformType;
 
 
